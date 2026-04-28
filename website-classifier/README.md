@@ -144,7 +144,7 @@ If it's below 18, [upgrade Node.js](https://nodejs.org/).
 ### Why Groq?
 - **Speed**: Groq's inference is significantly faster than competitors, making classifications feel responsive
 - **Accuracy**: llama-3.1-8b-instant provides strong accuracy for web classification without the cost of larger models
-- **Cost**: Free tier is generous; suitable for a take-home project without enterprise pricing
+- **Cost**: Free tier is generous; suitable for a project without enterprise pricing
 
 ### Client-Side Caching (localStorage)
 - **Why**: Avoids redundant API calls when classifying the same URL multiple times
