@@ -295,25 +295,37 @@
   }
 
   /* ── Progress bar ── */
-  .progress-track {
-    height: 8px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 999px;
-    overflow: hidden;
-  }
+  /* ── Progress bar (Radix) ── */
+[data-slot="progress"] {
+  height: 8px;
+  width: 100%;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.06);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    0 0 20px rgba(255,255,255,0.04);
+}
 
-  .progress-fill {
-    height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(90deg,
-      hsl(var(--active-cat)),
-      hsl(var(--active-cat) / 0.60));
-    box-shadow: 0 0 20px hsl(var(--active-cat) / 0.60);
-    transition: width 900ms cubic-bezier(.22,1,.36,1),
-                background 600ms ease,
-                box-shadow 600ms ease;
-  }
+[data-slot="progress-indicator"] {
+  height: 100%;
+  border-radius: 999px;
 
+  background: linear-gradient(
+    90deg,
+    hsl(var(--active-cat)),
+    hsl(var(--active-cat) / 0.65)
+  );
+
+  box-shadow:
+    0 0 12px hsl(var(--active-cat) / 0.6),
+    0 0 30px hsl(var(--active-cat) / 0.3);
+
+  transition:
+    transform 900ms cubic-bezier(.22,1,.36,1),
+    background 600ms ease,
+    box-shadow 600ms ease;
+}
   /* ── Category badge ── */
   .category-badge {
     display: inline-flex;

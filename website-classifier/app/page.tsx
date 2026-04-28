@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ClassifyResponse, ClassifyError, Category } from "@/lib/types";
+import { Progress } from "@/components/ui/progress";
 
 const CATEGORY_META: Record<Category, { theme: string; icon: string; label: string; sub: string }> = {
   "Ecommerce":    { theme: "Ecommerce",    icon: "🛍", label: "Ecommerce",    sub: "Stores & products" },
@@ -424,18 +425,16 @@ export default function Home() {
                   </motion.div>
 
                   {/* Confidence bar */}
-                  <div className="progress-track">
-                    <motion.div
-                      className="progress-fill"
-                      initial={{ width: 0 }}
-                      animate={{ width: `${result.confidence}%` }}
-                      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                      style={{
-                        background: `linear-gradient(90deg, ${catColor}, ${catColor}88)`,
-                        boxShadow: `0 0 14px 0 ${catColor}88`,
-                      }}
-                    />
-                  </div>
+                  <motion.div
+  initial={{ opacity: 0, y: 6 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4 }}
+>
+  <Progress
+    value={result.confidence}
+    className="h-2 rounded-full overflow-hidden"
+  />
+</motion.div>
                 </div>
 
                 {/* Explanation box */}
